@@ -1,0 +1,339 @@
+html, body {
+  margin: 0; padding: 0;
+  min-height: 100%;
+  font-family: "PingFang SC", "Microsoft YaHei UI", "Microsoft YaHei", "Segoe UI", sans-serif;
+  background: #F9FAFB;
+  color: #111827;
+}
+button, input, select { font: inherit; }
+
+.shell {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #F9FAFB;
+  box-sizing: border-box;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: #fff;
+  border-bottom: 1px solid #E5E7EB;
+}
+.app-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #15803D;
+  margin: 0;
+}
+
+/* 步骤指示器 */
+.steps {
+  display: flex;
+  align-items: center;
+}
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: default;
+}
+.step-circle {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 2px solid #D1D5DB;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700;
+  color: #9CA3AF;
+  background: #fff;
+  transition: all 0.2s;
+}
+.step-label {
+  font-size: 12px;
+  color: #9CA3AF;
+  white-space: nowrap;
+}
+.step-connector {
+  width: 28px; height: 2px;
+  background: #E5E7EB;
+  margin: 0 6px;
+}
+.step-item.active .step-circle {
+  background: #22C55E;
+  border-color: #22C55E;
+  color: #fff;
+}
+.step-item.active .step-label { color: #15803D; font-weight: 600; }
+.step-item.done .step-circle {
+  background: #BBF7D0;
+  border-color: #86EFAC;
+  color: #15803D;
+}
+.step-item.done .step-label { color: #15803D; }
+.step-connector.done { background: #86EFAC; }
+
+/* 主体两栏布局 */
+.app-body {
+  display: flex;
+  align-items: stretch;
+  flex: 1;
+  min-height: 0;
+}
+.main-col {
+  width: 50%;
+  padding: 16px;
+  box-sizing: border-box;
+  border-right: none;
+  overflow-y: auto;
+}
+.side-col {
+  width: 50%;
+  padding: 16px;
+  box-sizing: border-box;
+  background: #fff;
+  overflow-y: auto;
+  height: 610px;
+}
+
+/* 状态条 */
+.status-strip {
+  margin-bottom: 12px;
+  padding: 7px 12px;
+  border-radius: 6px;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  font-size: 12px;
+  color: #15803D;
+  min-height: 18px;
+}
+.status-strip.error {
+  background: #FEF2F2;
+  border-color: #FECACA;
+  color: #B91C1C;
+}
+
+/* 卡片 */
+.card {
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.card-title {
+  padding: 10px 16px;
+  border-bottom: 1px solid #E5E7EB;
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: #22C55E;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.card-body {
+  padding: 14px 16px;
+}
+
+/* 表单字段 */
+.field-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.field-row:last-child { margin-bottom: 0; }
+.neo-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+.neo-field span {
+  font-size: 12px;
+  color: #6B7280;
+  font-weight: 500;
+}
+select, input[type=text], input[type=number] {
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid #D1D5DB;
+  border-radius: 6px;
+  background: #F9FAFB;
+  font-size: 13px;
+  color: #111827;
+  box-sizing: border-box;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+select:focus, input:focus {
+  border-color: #22C55E;
+  background: #fff;
+}
+
+.range-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+.range-row .neo-field { flex: 1; }
+
+/* 按钮 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.btn-primary {
+  background: #22C55E;
+  color: #fff;
+}
+.btn-primary:hover:not(:disabled) { background: #16A34A; }
+.btn-primary:disabled { background: #BBF7D0; cursor: not-allowed; color: #fff; }
+.btn-secondary {
+  background: #fff;
+  color: #15803D;
+  border: 2px solid #22C55E;
+}
+.btn-secondary:hover:not(:disabled) { background: #F0FDF4; }
+.btn-secondary:disabled { border-color: #BBF7D0; color: #86EFAC; cursor: not-allowed; }
+.btn-ghost {
+  background: #F3F4F6;
+  color: #374151;
+  border: 1px solid #E5E7EB;
+  height: 32px;
+  padding: 0 12px;
+  flex-shrink: 0;
+}
+.btn-ghost:hover:not(:disabled) { background: #E5E7EB; }
+.btn-ghost:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.action-row {
+  display: flex;
+  gap: 10px;
+}
+.action-row .btn { flex: 1; }
+
+/* 进度 */
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #6B7280;
+  margin-bottom: 6px;
+}
+.progress-track {
+  height: 6px;
+  background: #E5E7EB;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.progress-bar {
+  display: block;
+  height: 100%;
+  width: 0px;
+  background: #22C55E;
+  border-radius: 999px;
+}
+.output-box {
+  margin: 0;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  background: #F9FAFB;
+  color: #374151;
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow: auto;
+  font-family: "Consolas", "Microsoft YaHei", monospace;
+}
+
+/* 右侧说明栏 */
+.info-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #15803D;
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #BBF7D0;
+}
+.info-intro {
+  font-size: 15px;
+  line-height: 1.85;
+  color: #374151;
+  margin: 0 0 10px;
+}
+.info-section-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 10px;
+}
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+}
+.feature-list li {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  font-size: 13px;
+  line-height: 1.7;
+  color: #374151;
+  margin-bottom: 8px;
+}
+.feature-list li::before {
+  content: '';
+  display: block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #22C55E;
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+.feature-name {
+  font-weight: 600;
+  color: #15803D;
+}
+.scenario-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag {
+  padding: 3px 10px;
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #15803D;
+}

@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>证件批量生成工具</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+
+    <header class="app-header">
+      <h1 class="app-title">证件批量生成工具</h1>
+      <nav class="steps" id="stepsNav">
+        <div class="step-item active" id="step1">
+          <div class="step-circle">1</div>
+          <span class="step-label">数据配置</span>
+        </div>
+        <div class="step-connector" id="conn1"></div>
+        <div class="step-item" id="step2">
+          <div class="step-circle">2</div>
+          <span class="step-label">排版设置</span>
+        </div>
+        <div class="step-connector" id="conn2"></div>
+        <div class="step-item" id="step3">
+          <div class="step-circle">3</div>
+          <span class="step-label">执行</span>
+        </div>
+      </nav>
+    </header>
+
+    <div class="app-body">
+
+      <div class="main-col">
+
+<!-- 卡片①：数据源配置 -->
+        <div class="card">
+          <div class="card-title">
+            <span class="step-badge">1</span>
+            数据源配置
+          </div>
+          <div class="card-body">
+            <div class="field-row">
+              <label class="neo-field">
+                <span>模板 Sheet</span>
+                <select id="templateSheet"></select>
+              </label>
+              <label class="neo-field">
+                <span>数据 Sheet</span>
+                <select id="dataSheet"></select>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片②：模板与排版配置 -->
+        <div class="card">
+          <div class="card-title">
+            <span class="step-badge">2</span>
+            模板与排版配置
+          </div>
+          <div class="card-body">
+            <div class="field-row range-row">
+              <label class="neo-field">
+                <span>模板区域</span>
+                <input id="templateRange" type="text" placeholder="例如 A1:H14">
+              </label>
+              <button id="pickRangeBtn" class="btn btn-ghost" type="button">选择区域</button>
+            </div>
+            <div class="field-row">
+              <label class="neo-field">
+                <span>生成数量</span>
+                <input id="generateCount" type="number" min="1" value="1">
+              </label>
+              <label class="neo-field">
+                <span>每行个数</span>
+                <input id="perRowCount" type="number" min="1" value="3">
+              </label>
+            </div>
+            <div class="field-row">
+              <label class="neo-field">
+                <span>分页字段</span>
+                <select id="pageField"></select>
+              </label>
+              <div class="neo-field"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片③：执行操作 -->
+        <div class="card">
+          <div class="card-title">
+            <span class="step-badge">3</span>
+            执行操作
+          </div>
+          <div class="card-body">
+            <div class="action-row">
+              <button id="generateBtn" class="btn btn-primary" type="button">第 1 步：批量生成模板</button>
+              <button id="writeBtn" class="btn btn-secondary" type="button">第 2 步：批量写入数据</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 卡片④：执行状态 -->
+        <div class="card">
+          <div class="card-title">执行状态</div>
+          <div class="card-body">
+            <div class="progress-header">
+              <span id="progressText">未开始</span>
+              <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-track">
+              <div id="progressBar" class="progress-bar"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 右侧使用说明栏 -->
+      <div class="side-col">
+        <h2 class="info-title">使用说明</h2>
+        <p class="info-section-title">项目说明</p>
+        <ul class="feature-list">
+          <li><span><span class="feature-name">仓库信息：</span>GitHub 仓库名为 excel-certificate-generator</span></li>
+          <li><span><span class="feature-name">项目定位：</span>一个基于 Excel VBA 开发的证件批量生成工具，适用于证书、桌牌、标签等固定版式场景</span></li>
+          <li><span><span class="feature-name">开源协议：</span>MIT License</span></li>
+        </ul>
+
+        <p class="info-intro">本工具用于在 Excel 中批量生成证件、桌牌、标签等固定版式内容。请先在模板中使用 &lt;&lt;字段名&gt;&gt; 作为占位符，再通过数据表批量写入。</p>
+
+        <p class="info-section-title">三步完成</p>
+        <ul class="feature-list">
+          <li><span><span class="feature-name">第 1 步：</span>选择模板 Sheet 和数据 Sheet</span></li>
+          <li><span><span class="feature-name">第 2 步：</span>选择模板区域，填写生成数量、每行个数和分页字段</span></li>
+          <li><span><span class="feature-name">第 3 步：</span>先点击“批量生成模板”，再点击“批量写入数据”</span></li>
+        </ul>
+
+        <p class="info-section-title">字段说明</p>
+        <ul class="feature-list">
+          <li><span><span class="feature-name">模板 Sheet：</span>单份证件样式所在的工作表</span></li>
+          <li><span><span class="feature-name">数据 Sheet：</span>批量数据所在的工作表</span></li>
+          <li><span><span class="feature-name">模板区域：</span>单份模板占用的区域，例如 A1:H14</span></li>
+          <li><span><span class="feature-name">分页字段：</span>按字段变化自动分页；如果不需要分页可不选</span></li>
+        </ul>
+
+        <p class="info-section-title">典型应用场景</p>
+        <div class="scenario-tags">
+          <span class="tag">考试准考证</span>
+          <span class="tag">台角纸</span>
+          <span class="tag">桌牌</span>
+          <span class="tag">价格标签</span>
+          <span class="tag">荣誉证书</span>
+          <span class="tag">成绩通知单</span>
+          <span class="tag">参会证</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <script src="bridge.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // 步骤指示器自动高亮
+    (function () {
+      var templateSheetEl = document.getElementById('templateSheet');
+      var dataSheetEl = document.getElementById('dataSheet');
+      var templateRangeEl = document.getElementById('templateRange');
+      var generateCountEl = document.getElementById('generateCount');
+      var perRowCountEl = document.getElementById('perRowCount');
+      var pageFieldEl = document.getElementById('pageField');
+      var step1 = document.getElementById('step1');
+      var step2 = document.getElementById('step2');
+      var step3 = document.getElementById('step3');
+      var conn1 = document.getElementById('conn1');
+      var conn2 = document.getElementById('conn2');
+
+      function updateSteps() {
+        var hasTemplateSheet = !!templateSheetEl.value;
+        var hasDataSheet = !!dataSheetEl.value;
+        var hasRange = !!templateRangeEl.value.trim();
+        var hasGenerateCount = Number(generateCountEl.value || 0) > 0;
+        var hasPerRowCount = Number(perRowCountEl.value || 0) > 0;
+        var hasPageField = !!pageFieldEl.value;
+
+        var step1Done = hasTemplateSheet && hasDataSheet;
+        var step2Done = step1Done && hasRange && hasGenerateCount && hasPerRowCount && hasPageField;
+        var step3Ready = step2Done && hasTemplateSheet && hasRange;
+
+        step1.className = 'step-item' + (step1Done ? ' done' : ' active');
+        conn1.className = 'step-connector' + (step1Done ? ' done' : '');
+        step2.className = 'step-item' + (step2Done ? ' done' : step1Done ? ' active' : '');
+        conn2.className = 'step-connector' + (step2Done ? ' done' : '');
+        step3.className = 'step-item' + (step3Ready ? ' active' : '');
+      }
+
+      templateSheetEl.addEventListener('change', updateSteps);
+      dataSheetEl.addEventListener('change', updateSteps);
+      templateRangeEl.addEventListener('input', updateSteps);
+      generateCountEl.addEventListener('input', updateSteps);
+      perRowCountEl.addEventListener('input', updateSteps);
+      pageFieldEl.addEventListener('change', updateSteps);
+      updateSteps();
+    })();
+  </script>
+</body>
+</html>
