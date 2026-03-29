@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>宣传海报 - 快速上手</title>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              500: '#22c55e',
+              700: '#15803d'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="posters.css">
+</head>
+<body class="poster-page">
+  <div class="poster-shell">
+    <div class="poster-mode-bar">
+      <a class="btn btn-ghost" href="index.html">返回总览</a>
+      <span id="modeTag" class="badge badge-success badge-lg">当前：动画模式</span>
+      <button id="toggleModeBtn" class="btn btn-success btn-outline">切换截图模式</button>
+    </div>
+
+    <section class="poster quickstart-poster">
+      <div class="poster-grid quickstart-grid">
+        <div class="poster-eyebrow poster-kicker quickstart-kicker">3步完成批量生成</div>
+        <div class="poster-heading poster-cover-heading quickstart-heading">
+          <h1 class="poster-title poster-cover-title">快速上手</h1>
+          <p class="poster-subtitle poster-cover-subtitle">模板 Sheet + 数据 Sheet + 运行生成，一页看懂从准备到批量输出的完整流程。</p>
+        </div>
+
+        <section class="quickstart-flow" aria-label="快速上手三步流程">
+          <div class="quickstart-inputs">
+            <article class="poster-step quickstart-step">
+              <div class="quickstart-step-header">
+                <div class="step-no">1</div>
+                <div>
+                  <span class="badge badge-success badge-outline">第一步</span>
+                  <h3>编辑样式</h3>
+                </div>
+              </div>
+              <img class="media-frame quickstart-frame" data-poster-image src="../pic/模板样式.png" alt="模板 Sheet 样式编辑示意图">
+              <div class="result-fallback quickstart-fallback" hidden>
+                <div>
+                  <strong>模板图加载失败</strong>
+                  <span>请检查 <b>../pic/模板样式.png</b> 是否存在</span>
+                </div>
+              </div>
+            </article>
+
+            <div class="quickstart-equation" aria-hidden="true">
+              <span class="quickstart-operator">+</span>
+              <span class="quickstart-operator-label">准备好模板结构后，再补充数据内容</span>
+            </div>
+
+            <article class="poster-step quickstart-step">
+              <div class="quickstart-step-header">
+                <div class="step-no">2</div>
+                <div>
+                  <span class="badge badge-success badge-outline">第二步</span>
+                  <h3>准备数据</h3>
+                </div>
+              </div>
+              <img class="media-frame quickstart-frame" data-poster-image src="../pic/数据样式.png" alt="数据 Sheet 准备示意图">
+              <div class="result-fallback quickstart-fallback" hidden>
+                <div>
+                  <strong>数据图加载失败</strong>
+                  <span>请检查 <b>../pic/数据样式.png</b> 是否存在</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <article class="poster-media quickstart-output">
+            <div class="quickstart-step-header quickstart-output-header">
+              <div class="step-no">3</div>
+              <div>
+                <span class="badge badge-success badge-outline">第三步</span>
+                <h3>运行生成</h3>
+              </div>
+              <span class="quickstart-equals" aria-hidden="true">=</span>
+            </div>
+            <p class="quickstart-output-text">点击生成后，模板样式与数据内容自动合并，直接得到可打印、可分发的批量结果。</p>
+            <div class="quickstart-causal-note">模板样式 + 数据内容 = 批量生成结果</div>
+            <button class="quickstart-preview-trigger" type="button" data-preview-trigger aria-label="查看生成结果大图">
+              <img class="media-frame quickstart-frame quickstart-output-frame" data-poster-image src="../pic/生成结果.png" alt="批量生成结果示意图">
+            </button>
+            <div class="result-fallback quickstart-fallback" hidden>
+              <div>
+                <strong>结果图加载失败</strong>
+                <span>请检查 <b>../pic/生成结果.png</b> 是否存在</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <footer class="poster-footer quickstart-footer">
+          <div>
+            <strong>适合真实办公场景</strong>
+            <p>前两步负责准备模板与数据，第三步直接批量生成，证书、桌牌、标签都能沿用这套流程。</p>
+          </div>
+          <span class="badge badge-success badge-lg">快速上手</span>
+        </footer>
+      </div>
+    </section>
+  </div>
+
+  <div class="poster-image-lightbox" id="posterImageLightbox" hidden>
+    <button class="poster-image-lightbox-backdrop" type="button" data-preview-close aria-label="关闭大图预览"></button>
+    <div class="poster-image-lightbox-dialog" role="dialog" aria-modal="true" aria-label="生成结果大图预览">
+      <button class="poster-image-lightbox-close" type="button" data-preview-close aria-label="关闭大图预览">×</button>
+      <img id="posterImageLightboxImg" class="poster-image-lightbox-img" alt="">
+    </div>
+  </div>
+  <script src="posters.js"></script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>宣传海报 - 卖点</title>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              500: '#22c55e',
+              700: '#15803d'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="posters.css">
+</head>
+<body class="poster-page">
+  <div class="poster-shell">
+    <div class="poster-mode-bar">
+      <a class="btn btn-ghost" href="index.html">返回总览</a>
+      <span id="modeTag" class="badge badge-success badge-lg">当前：动画模式</span>
+      <button id="toggleModeBtn" class="btn btn-success btn-outline">切换截图模式</button>
+    </div>
+
+    <section class="poster selling-points-poster">
+      <div class="poster-grid selling-points-grid">
+        <div class="poster-heading poster-cover-heading selling-points-heading">
+          <div class="poster-eyebrow poster-kicker">Excel 工具亮点</div>
+          <h1 class="poster-title poster-cover-title">不只是批量填值，<br>连排版也能一起做</h1>
+          <p class="poster-subtitle poster-cover-subtitle">更适合真实办公场景：模板可调、排版可控、分页自动、字段灵活。</p>
+        </div>
+
+        <div class="card-grid two-col selling-points-card-grid">
+          <article class="poster-card selling-point-card">
+            <span class="badge badge-success badge-outline">亮点 01</span>
+            <h3>模板自由</h3>
+            <p>行高、列宽、字体、边框都能按你的版式自由调整。</p>
+          </article>
+          <article class="poster-card selling-point-card">
+            <span class="badge badge-success badge-outline">亮点 02</span>
+            <h3>行数设置</h3>
+            <p>可设置单行模板个数，并配合页边距控制单页排布。</p>
+          </article>
+          <article class="poster-card selling-point-card">
+            <span class="badge badge-success badge-outline">亮点 03</span>
+            <h3>分页策略</h3>
+            <p>支持按字段自动分页，打印、分组、分发都更省事。</p>
+          </article>
+          <article class="poster-card selling-point-card">
+            <span class="badge badge-success badge-outline">亮点 04</span>
+            <h3>字段不限</h3>
+            <p>支持 `&lt;&lt;占位符&gt;&gt;` 自动匹配数据源，字段扩展更灵活。</p>
+          </article>
+        </div>
+
+        <footer class="poster-footer selling-points-footer">
+          <div>
+            <strong>Excel原生</strong>
+            <p>基于 Excel Vba开发，相对于openpyxl xlsxwriter等第三方库有更好兼容性。</p>
+            <p class="selling-points-footnote">保留 Excel 本地排版能力，模板样式与打印结果更贴近真实办公输出。</p>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </div>
+  <script src="posters.js"></script>
+</body>
+</html>

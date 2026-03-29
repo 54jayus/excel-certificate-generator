@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>宣传海报 - 导航总览</title>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              500: '#22c55e',
+              700: '#15803d'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="posters.css">
+</head>
+<body class="poster-page">
+  <div class="poster-shell">
+    <div class="poster-mode-bar">
+      <span id="modeTag" class="badge badge-success badge-lg">当前：动画模式</span>
+      <button id="toggleModeBtn" class="btn btn-success btn-outline">切换截图模式</button>
+    </div>
+
+    <section class="poster index-poster">
+      <div class="poster-grid index-grid">
+        <div class="poster-heading poster-cover-heading index-heading">
+          <div class="poster-eyebrow poster-kicker index-kicker">小红书宣传素材</div>
+          <h1 class="poster-title poster-cover-title index-title">Excel 证件批量生成工具</h1>
+          <p class="poster-subtitle poster-cover-subtitle index-subtitle">已按竖版 3:4、教程干货风规划为 4 张海报，适合小红书图文发布。点击卡片即可预览对应海报。</p>
+        </div>
+
+        <div class="card-grid two-col index-card-grid">
+          <a class="poster-card index-card" href="poster-cover.html">
+            <span class="badge badge-success badge-outline">Poster 01</span>
+            <h3>封面页</h3>
+            <p>突出"证件批量生成"主题，展示工具操作界面预览。</p>
+          </a>
+          <a class="poster-card index-card" href="poster-selling-points.html">
+            <span class="badge badge-success badge-outline">Poster 02</span>
+            <h3>卖点页</h3>
+            <p>展示模板自由、行数设置、分页策略、字段不限四大亮点。</p>
+          </a>
+          <a class="poster-card index-card" href="poster-results.html">
+            <span class="badge badge-success badge-outline">Poster 03</span>
+            <h3>使用效果页</h3>
+            <p>预留真实素材图片位置，展示最终生成效果。</p>
+          </a>
+          <a class="poster-card index-card" href="poster-github.html">
+            <span class="badge badge-success badge-outline">Poster 04</span>
+            <h3>Github 开源页</h3>
+            <p>展示仓库名、项目介绍与 MIT 开源协议说明。</p>
+          </a>
+        </div>
+
+        <footer class="poster-footer index-footer">
+          <div>
+            <strong>发布建议</strong>
+            <p>直接截图发图文，或用浏览器录屏导出动态效果。URL 后加 <span class="poster-link">?mode=static</span> 进入定帧模式。</p>
+          </div>
+          <a class="btn btn-success" href="https://github.com/54jayus/excel-certificate-generator" target="_blank">查看仓库</a>
+        </footer>
+      </div>
+    </section>
+  </div>
+  <script src="posters.js"></script>
+</body>
+</html>

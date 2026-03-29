@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>宣传海报 - Github 开源仓库</title>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              500: '#22c55e',
+              700: '#15803d'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="posters.css">
+</head>
+<body class="poster-page">
+  <div class="poster-shell">
+    <div class="poster-mode-bar">
+      <a class="btn btn-ghost" href="index.html">返回总览</a>
+      <span id="modeTag" class="badge badge-success badge-lg">当前：动画模式</span>
+      <button id="toggleModeBtn" class="btn btn-success btn-outline">切换截图模式</button>
+    </div>
+
+    <section class="poster github-poster">
+      <div class="poster-grid github-grid">
+        <div class="poster-heading poster-cover-heading github-heading">
+          <div class="poster-eyebrow poster-kicker github-kicker">Github 开源仓库</div>
+          <h1 class="poster-title poster-cover-title github-title">excel-certificate-generator</h1>
+          <p class="poster-subtitle poster-cover-subtitle github-subtitle">一个面向真实办公场景的 Excel VBA 批量生成工具。适合证书、桌牌、标签、参会证等固定版式内容，准备模板和数据后即可批量输出结果。</p>
+        </div>
+
+        <div class="card-grid two-col github-feature-grid">
+          <article class="poster-card github-feature-card">
+            <span class="badge badge-success badge-outline">功能 01</span>
+            <h3>模板样式编辑</h3>
+            <p>支持在模板 Sheet 中自由调整行高、列宽、字体、边框与排版结构。</p>
+          </article>
+          <article class="poster-card github-feature-card">
+            <span class="badge badge-success badge-outline">功能 02</span>
+            <h3>数据批量写入</h3>
+            <p>通过占位符匹配数据字段，将姓名、部门、编号等内容自动批量填入模板。</p>
+          </article>
+          <article class="poster-card github-feature-card">
+            <span class="badge badge-success badge-outline">功能 03</span>
+            <h3>分页与排布控制</h3>
+            <p>支持单页数量、分页字段和页面排布控制，适合打印与分发场景。</p>
+          </article>
+          <article class="poster-card github-feature-card">
+            <span class="badge badge-success badge-outline">功能 04</span>
+            <h3>结果快速生成</h3>
+            <p>将模板样式与数据内容合并输出，减少重复复制粘贴带来的手工劳动。</p>
+          </article>
+        </div>
+
+        <footer class="poster-footer github-footer">
+          <div>
+            <strong>版权声明</strong>
+            <p>作者为 Rongny。本项目采用 MIT License 开源协议，欢迎学习、使用、修改与分发，同时请保留原始版权与许可说明。</p>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </div>
+  <script src="posters.js"></script>
+</body>
+</html>

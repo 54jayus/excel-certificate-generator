@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>宣传海报 - 封面</title>
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              200: '#bbf7d0',
+              500: '#22c55e',
+              700: '#15803d'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.24/dist/full.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="posters.css">
+</head>
+<body class="poster-page poster-cover-page">
+  <div class="poster-shell">
+    <section class="poster poster-cover-poster">
+      <div class="poster-grid poster-cover-grid">
+        <div class="poster-heading poster-cover-heading">
+          <div class="poster-eyebrow poster-kicker">Excel 工具推荐</div>
+          <h1 class="poster-title poster-cover-title">证件批量生成工具</h1>
+          <p class="poster-subtitle poster-cover-subtitle">基于 Excel VBA 的版式批量生成工具。适合证书、桌牌、标签、参会证等内容，编辑一套模板就能批量出结果。</p>
+        </div>
+
+        <div class="cover-feature-strip">
+          <article class="cover-feature-chip poster-card">
+            <span class="badge badge-success badge-outline">01</span>
+            <h3>开源项目</h3>
+            <p>基于MIT License 进行分发与使用。</p>
+          </article>
+          <article class="cover-feature-chip poster-card">
+            <span class="badge badge-success badge-outline">02</span>
+            <h3>本地运行</h3>
+            <p>围绕 Excel 本地使用场景设计，办公直接可用。</p>
+          </article>
+          <article class="cover-feature-chip poster-card">
+            <span class="badge badge-success badge-outline">03</span>
+            <h3>开箱即用</h3>
+            <p>准备模板和数据后即可开始生成，操作简单。</p>
+          </article>
+          <article class="cover-feature-chip poster-card">
+            <span class="badge badge-success badge-outline">04</span>
+            <h3>高自由度</h3>
+            <p>模板样式、数量、分页等都能自由配置。</p>
+          </article>
+        </div>
+
+        <section class="poster-cover-stage poster-visual" data-cover-reveal-state="idle">
+          <div class="excel-window windows-window">
+            <div class="excel-titlebar windows-titlebar">
+              <div class="windows-app">
+                <span class="windows-app-icon"></span>
+                <div class="excel-filename">证件批量生成工具 - Excel 实况演示</div>
+              </div>
+              <div class="windows-actions">
+                <span class="win-btn win-min"></span>
+                <span class="win-btn win-max"></span>
+                <span class="win-btn win-close"></span>
+              </div>
+            </div>
+            <div class="excel-ribbon windows-ribbon">
+              <span class="ribbon-chip active">开始</span>
+              <span class="ribbon-chip">插入</span>
+              <span class="ribbon-chip">页面布局</span>
+              <span class="ribbon-chip">开发工具</span>
+              <span class="ribbon-chip success">VBA 工具运行中</span>
+            </div>
+            <div class="excel-canvas-wrap">
+              <div class="excel-canvas-grid"></div>
+              <button class="cover-reveal-btn btn btn-success" id="coverRevealBtn" type="button">运行Excel宏</button>
+              <div class="excel-screenshot cover-left-panel-preview" id="coverScreenshot" aria-label="证件批量生成工具左侧操作区预览">
+                <div class="cover-main-col">
+                  <section class="cover-card">
+                    <div class="cover-card-title">
+                      <span class="cover-step-badge">1</span>
+                      <span>数据源配置</span>
+                    </div>
+                    <div class="cover-card-body">
+                      <div class="cover-field-row two-col">
+                        <label class="cover-field">
+                          <span>模板 Sheet</span>
+                          <div class="cover-field-box">证书模板</div>
+                        </label>
+                        <label class="cover-field">
+                          <span>数据 Sheet</span>
+                          <div class="cover-field-box">报名名单</div>
+                        </label>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="cover-card cover-card-emphasis">
+                    <div class="cover-card-title">
+                      <span class="cover-step-badge">2</span>
+                      <span>模板与排版配置</span>
+                    </div>
+                    <div class="cover-card-body">
+                      <div class="cover-field-row range-row">
+                        <label class="cover-field cover-field-wide">
+                          <span>模板区域</span>
+                          <div class="cover-field-box">A1:H14</div>
+                        </label>
+                        <div class="cover-mini-btn">选择区域</div>
+                      </div>
+                      <div class="cover-field-row two-col">
+                        <label class="cover-field">
+                          <span>生成数量</span>
+                          <div class="cover-field-box">120</div>
+                        </label>
+                        <label class="cover-field">
+                          <span>每行个数</span>
+                          <div class="cover-field-box">3</div>
+                        </label>
+                      </div>
+                      <div class="cover-field-row two-col">
+                        <label class="cover-field">
+                          <span>分页字段</span>
+                          <div class="cover-field-box">部门</div>
+                        </label>
+                        <div class="cover-field cover-field-empty" aria-hidden="true"></div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="cover-card">
+                    <div class="cover-card-title">
+                      <span class="cover-step-badge">3</span>
+                      <span>执行操作</span>
+                    </div>
+                    <div class="cover-card-body">
+                      <div class="cover-action-row">
+                        <div class="cover-action-btn primary">批量生成模板</div>
+                        <div class="cover-action-btn secondary">批量写入数据</div>
+                      </div>
+                    </div>
+                  </section>
+
+                  <section class="cover-card cover-card-status">
+                    <div class="cover-card-title">
+                      <span>执行状态</span>
+                      <span class="cover-status-pill">运行中</span>
+                    </div>
+                    <div class="cover-card-body">
+                      <div class="cover-progress-header">
+                        <span>已完成 86 / 120</span>
+                        <span>72%</span>
+                      </div>
+                      <div class="cover-progress-track">
+                        <div class="cover-progress-bar"></div>
+                      </div>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+            <div class="excel-statusbar">
+              <span>本地运行</span>
+            </div>
+          </div>
+          <div class="live-pill live-pill-1">Live · 本地运行</div>
+          <div class="live-pill live-pill-2">实时预览 · Excel 场景</div>
+        </section>
+      </div>
+    </section>
+  </div>
+  <script src="posters.js"></script>
+</body>
+</html>
