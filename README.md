@@ -18,8 +18,7 @@
 - 支持按字段分页（可选）
 
 ### 环境与兼容性
-- 目前已在作者本机的 **Microsoft Office** 与 **WPS** 中可用。
-- 尚未系统测试具体 Excel 版本号。
+- 目前仅在作者本机的 **WPS**（版本号：12.1.0.25225）中测试运行，其他环境尚未验证。
 
 ### VBA 宏启用说明
 1. 打开 `excel-certificate-generator.xlsm`。
@@ -87,8 +86,7 @@ git clone https://github.com/54jayus/excel-certificate-generator.git
 - Optional pagination by field
 
 ### Compatibility
-- Confirmed working on the author's local **Microsoft Office** and **WPS** environments.
-- Specific Excel versions have not been systematically tested yet.
+- Tested only on the author's local **WPS** (version 12.1.0.25225). Other environments have not been verified.
 
 ### Enable VBA Macros
 1. Open `excel-certificate-generator.xlsm`.
