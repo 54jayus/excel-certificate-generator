@@ -21,22 +21,31 @@
 - 目前仅在作者本机的 **WPS**（版本号：12.1.0.25225）中测试运行，其他环境尚未验证。
 
 ### VBA 宏启用说明
-1. 打开 `excel-certificate-generator.xlsm`。
-2. 在安全提示中点击“启用内容 / 启用宏”。
-3. 如果被安全策略拦截，请将项目放到受信任位置，或在安全中心按需调整宏设置。
 
-> 安全建议：仅对可信来源文件启用宏。
+如果 WPS 无法启用宏，请参考项目目录中的 [`wps启用宏教程`](./wps启用宏教程) 文件夹，或自行搜索「WPS 启用 VBA 宏」解决。
 
 ### 快速开始
 ```bash
 git clone https://github.com/54jayus/excel-certificate-generator.git
 ```
 
-1. 打开 `excel-certificate-generator.xlsm`
+#### 方式一：加载 xlam 插件【推荐】
+
+此方式可在任意 WPS 文件中启动宏，无需每次打开指定文件。
+
+1. 打开任意 Excel 文件，点击顶部菜单栏 **工具** > **加载项**，加载 `excel-certificate-generator.xlam`。
+2. 将宏添加到快速访问工具栏：右键点击顶部菜单栏空白处，选择 **自定义命令** > **其他命令**，在分类中选择 **宏**，找到 `excel-certificate-generator.xlam` 并添加。
+3. 之后在任意 WPS 文件中，点击快速访问工具栏中的宏图标即可启动宏。
+
+#### 方式二：直接打开 xlsm 文件
+
+1. 打开 `excel-certificate-generator.xlsm`，在安全提示中点击 **启用宏**。
 2. 在工具界面中完成三步：
    - 第 1 步：选择模板 Sheet 与数据 Sheet
    - 第 2 步：选择模板区域并设置参数
    - 第 3 步：执行生成与写入
+
+> 注意：此方式仅在该文件打开时有效。
 
 ### 使用步骤
 1. **数据源配置**
@@ -56,13 +65,23 @@ git clone https://github.com/54jayus/excel-certificate-generator.git
 ### 项目结构
 ```text
 .
-├─ excel-certificate-generator.xlsm
-└─ src/
-   └─ webui/
-      ├─ index.html
-      ├─ app.js
-      ├─ bridge.js
-      └─ styles.css
+├─ excel-certificate-generator.xlam   # 插件文件（推荐加载方式）
+├─ excel-certificate-generator.xlsm   # 含宏的工作簿
+├─ src/
+│  ├─ vba/                            # VBA 源码
+│  └─ webui/                          # 工具界面
+│     ├─ index.html
+│     ├─ app.js
+│     ├─ bridge.js
+│     ├─ styles.css
+│     └─ pic/                         # 界面截图
+├─ wps启用宏教程/                      # WPS VBA 启用教程及安装包
+│  ├─ 第一种安装方式/
+│  └─ 【第二种安装方式】wps.vba.exe
+└─ 模板样式/                          # 示例模板
+   ├─ 准考证样式.xlsx
+   ├─ 台角纸样式.xlsx
+   └─ 桌角纸样式.xlsx
 ```
 
 ### 许可证
@@ -89,22 +108,31 @@ git clone https://github.com/54jayus/excel-certificate-generator.git
 - Tested only on the author's local **WPS** (version 12.1.0.25225). Other environments have not been verified.
 
 ### Enable VBA Macros
-1. Open `excel-certificate-generator.xlsm`.
-2. Click **Enable Content / Enable Macros** when prompted.
-3. If blocked by security policy, place the file in a trusted location or adjust macro settings in Trust Center as needed.
 
-> Security note: only enable macros for trusted files.
+If WPS cannot enable macros, refer to the [`wps启用宏教程`](./wps启用宏教程) folder in this project, or search online for "WPS enable VBA macros".
 
 ### Quick Start
 ```bash
 git clone https://github.com/54jayus/excel-certificate-generator.git
 ```
 
-1. Open `excel-certificate-generator.xlsm`
+#### Option 1: Load the xlam Add-in (Recommended)
+
+This approach enables the macro in any WPS file without opening a specific workbook each time.
+
+1. Open any Excel file, then go to **Tools** > **Add-ins** in the menu bar and load `excel-certificate-generator.xlam`.
+2. Add the macro to the Quick Access Toolbar: right-click on an empty area of the menu bar, select **Customize Quick Access Toolbar** > **More Commands**, choose **Macros** in the category list, and add `excel-certificate-generator.xlam`.
+3. The macro icon will appear in the Quick Access Toolbar and can be launched from any WPS file.
+
+#### Option 2: Open the xlsm File Directly
+
+1. Open `excel-certificate-generator.xlsm` and click **Enable Macros** when prompted.
 2. Complete the 3 steps in the UI:
    - Step 1: Select template/data sheets
    - Step 2: Configure template range and layout options
    - Step 3: Run generation and data writing
+
+> Note: this approach only works while that specific file is open.
 
 ### Usage
 1. **Data Source Setup**
@@ -124,13 +152,23 @@ git clone https://github.com/54jayus/excel-certificate-generator.git
 ### Project Structure
 ```text
 .
-├─ excel-certificate-generator.xlsm
-└─ src/
-   └─ webui/
-      ├─ index.html
-      ├─ app.js
-      ├─ bridge.js
-      └─ styles.css
+├─ excel-certificate-generator.xlam   # Add-in file (recommended)
+├─ excel-certificate-generator.xlsm   # Macro-enabled workbook
+├─ src/
+│  ├─ vba/                            # VBA source code
+│  └─ webui/                          # Tool UI
+│     ├─ index.html
+│     ├─ app.js
+│     ├─ bridge.js
+│     ├─ styles.css
+│     └─ pic/                         # Screenshots
+├─ wps启用宏教程/                      # WPS VBA setup guide and installers
+│  ├─ 第一种安装方式/
+│  └─ 【第二种安装方式】wps.vba.exe
+└─ 模板样式/                          # Example templates
+   ├─ 准考证样式.xlsx
+   ├─ 台角纸样式.xlsx
+   └─ 桌角纸样式.xlsx
 ```
 
 ### License
